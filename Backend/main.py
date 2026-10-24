@@ -1,11 +1,11 @@
 from fastapi import FastAPI
-from pydantic import BaseModel
+from pydantic import BaseModel, Field 
 
 app = FastAPI()
 
 
 class Task(BaseModel):
-    title: str
+    title: str = Field(..., min_length=1)
     completed: bool = False
 
 
